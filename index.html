@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>web-demo首页</title>
+    <script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .menu{
+            width: 280px;
+            position: absolute;
+            top: 0px;
+            left: 0;
+            bottom: 0;
+            background-color: #ddd;
+            overflow: scroll;
+        }
+        .myframe{
+            position: absolute;
+            left: 280px;
+            top: 0px;
+            bottom: 0;
+            right: 0;
+            box-sizing: border-box;
+        }
+        .header {
+            background-color: #ddd;
+            height: 50px
+        }
+    </style>
+
+    <script>
+        function fnSetSize() {
+            var $ww = $(window).width();
+            var $wh = $(window).height() - 50;
+            $('.myframe').css({width: $ww - 280, height: $wh});
+        }
+
+        var list = [
+            {'folder': "1-html",
+            'files': [
+                '2-表格.html',
+                '3-简历.html',
+                '4-css.html',
+                '5-盒子模型.html',
+                '6-盒子例子.html',
+                '7-行内元素.html',
+                '8-内联块元素.html',
+                '9-浮动.html',
+                '10-清除浮动.html',
+                '11-定位.html',
+                '12-弹窗.html',
+                '13-雪碧图.html',
+                '14-特征布局练习.html',
+                '15-news.html',
+                ]
+            },
+            {'folder': "2-pc-web",
+            'files': [
+                "index.html"
+                ]
+            },
+            {'folder': "3-h5c3",
+            'files': [
+                '2-transition.html',
+                '3-transform.html',
+                '3-遮罩.html',
+                'index.html',
+                ]
+            },
+            {'folder': "4-布局",
+            'files': [
+                '01-流体布局.html',
+                '02-响应式布局.html',
+                '04-rem布局.html',
+                ]
+            },
+            {'folder': "5-webapp",
+            'files': [
+                'rem-pug/rem-index.html',
+                ]
+            },
+            {'folder': "6-js",
+            'files': [
+                '1-js导入.html',
+                '2-网页换肤.html',
+                '3-条件控制.js',
+                '4-按键切换.html',
+                '5-数组.js',
+                '6-字符串.js',
+                '7-计算器.html',
+                '8-定时器.html',
+                '9-无缝滚动.html',
+                '10-时钟.html',
+                '11-倒计时.html',
+                ]
+            },
+        ];
+
+        function fnAddList() {
+            for (let i =0; i<list.length; i++) {
+                var folder = list[i]['folder'];
+                $section = $('<ul class='+ folder + '></ul>')
+
+                var files = list[i]['files'];
+                for (let j =0; j<files.length; j++) {
+                    $li = $('<li><a href="./' + folder + '/' + files[j] + '" target="myframe">' + files[j] + '</a></li>');
+                    $section.append($li);
+                }
+                $('.menu').append($section);
+            }
+        }
+
+        $(function(){
+            fnSetSize();
+            $(window).resize(fnSetSize);
+            fnAddList();
+        })
+    </script>
+</head>
+<body>
+    <!--<div class="header">-->
+    <div class="menu" >
+    </div>
+  
+
+    </div>
+    <iframe src="" frameborder="0" scrolling="auto"  class="myframe" name="myframe"></iframe>
+</body>
+</html>
